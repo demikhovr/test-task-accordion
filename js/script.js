@@ -12,7 +12,7 @@
    * @param {Object} evt
    */
   function headerClickHandler(evt) {
-    event.preventDefault();
+    evt.preventDefault();
 
     const target = evt.target;
 
