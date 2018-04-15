@@ -1,0 +1,148 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+:root {
+  --main-color: #4f4f4f;
+  --bg-color: #ffffff;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  padding: 0;
+
+  font-weight: 200;
+  font-size: 15px;
+  line-height: 26px;
+  font-family: "Fira Sans", "Arial", sans-serif;
+  color: var(--main-color);
+
+  background-color: var(--bg-color);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.visually-hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+}
+
+.accordion__wrapper {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 130px 20px 50px;
+}
+
+.accordion__logo {
+  display: block;
+  width: 216px;
+  height: 39px;
+  margin: 0 auto;
+  margin-bottom: 23px;
+
+  outline: none;
+}
+
+.accordion__list {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.accordion__item {
+  margin-bottom: 5px;
+
+  background-color: #e7e7e7;
+  border-radius: 20px;
+}
+
+.accordion__item:last-child {
+  margin-bottom: 0;
+}
+
+.accordion__item-header {
+  position: relative;
+
+  margin: 0;
+  padding: 8px 22px 8px;
+
+  border-radius: 20px;
+
+  font-weight: 500;
+  font-size: 15px;
+  font-family: "Fira Sans", "Arial", sans-serif;
+  color: #ffffff;
+
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  cursor: pointer;
+}
+
+.accordion__item:nth-child(2n + 1):not(.accordion__item--active) .accordion__item-header {
+  background-color: #696666;
+}
+
+.accordion__item:nth-child(2n):not(.accordion__item--active) .accordion__item-header {
+  color: #4f4f4f;
+}
+
+.accordion__item--active .accordion__item-header {
+  background-color: #ff8663;
+  color: #ffffff;
+}
+
+.accordion__item-header::before {
+  content: "";
+  z-index: 20;
+  position: absolute;
+  top: 16px;
+  right: 21px;
+
+  width: 0;
+  height: 0;
+  border-width: 12px 7px 0 7px;
+  border-style: solid;
+  border-color: #ff8663 transparent transparent transparent;
+
+  transform-origin: center;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.accordion__item--active .accordion__item-header::before {
+  border-top-color: #ffffff;
+
+  transform: rotate(180deg);
+}
+
+.accordion__item-content-wrapper {
+  height: 0;
+
+  overflow: hidden;
+  transition: height 0.3s ease;
+}
+
+.accordion__item-content {
+  margin: 0;
+  padding: 7px 21px 8px;
+
+  list-style: none;
+}
